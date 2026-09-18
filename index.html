@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Google PFP Creator v2.0</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@400;500;700&family=Playfair+Display:wght@400;700&family=Bebas+Neue&family=Pacifico&family=Space+Mono:wght@400;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+    <div class="app-container">
+        <!-- Sidebar Controls -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="brand">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 8l4 4-4 4M8 12h7"></path></svg>
+                    <h2>Google PFP Creator v2.0</h2>
+                </div>
+                <div class="header-actions">
+                    <button id="changelogBtn" class="icon-btn" title="View Changelog">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                    </button>
+                    <button id="themeToggle" class="icon-btn" title="Toggle Theme">
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    </button>
+                    <button id="mobileCommentBtn" class="icon-btn mobile-only" title="Post to Comments">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><rect x="3" y="3" width="18" height="12" rx="2"></rect><path d="M8 11l2-2 3 3 4-4 2 2"></path></svg>
+                    </button>
+                    <button id="mobileDownload" class="icon-btn mobile-only" title="Download">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    </button>
+                </div>
+            </div>
+
+            <nav class="mobile-tabs mobile-only">
+                <button class="tab-btn active" data-tab="text-tools">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
+                    <span>Text</span>
+                </button>
+                <button class="tab-btn" data-tab="bg-tools">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18M12 3v18"/></svg>
+                    <span>BG</span>
+                </button>
+                <button class="tab-btn" data-tab="settings-tools">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    <span>Config</span>
+                </button>
+            </nav>
+
+            <div class="scroll-area">
+                <!-- Text Tools -->
+                <section id="text-tools" class="tool-section active">
+                    <h3>Text</h3>
+                    <div class="input-row">
+                        <input type="text" id="initialInput" maxlength="24" value="" placeholder="Text">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label>Font</label>
+                        <div class="input-row">
+                            <select id="fontFamily" style="flex: 2;">
+                                <option value="Yantramanav">Yantramanav</option>
+                                <option value="'Playfair Display'">Playfair Display</option>
+                                <option value="'Bebas Neue'">Bebas Neue</option>
+                                <option value="'Pacifico'">Pacifico</option>
+                                <option value="'Space Mono'">Space Mono</option>
+                                <option value="'Outfit'">Outfit</option>
+                            </select>
+                            <select id="fontWeight" style="flex: 1;">
+                                <option value="400">Reg</option>
+                                <option value="500">Med</option>
+                                <option value="600">Semi</option>
+                                <option value="700">Bold</option>
+                            </select>
+                        </div>
+                        <button id="toggleFontImport" class="text-link-btn">+ Import Custom Font</button>
+                    </div>
+
+                    <div id="fontImportPanel" class="import-panel hidden">
+                        <div class="import-tabs">
+                            <button class="import-tab-btn active" data-import-type="google">Google</button>
+                            <button class="import-tab-btn" data-import-type="disk">Disk</button>
+                        </div>
+                        
+                        <div id="googleImport" class="import-content">
+                            <input type="text" id="googleFontInput" placeholder="Font Name (e.g. Inter)">
+                            <button id="loadGoogleFont" class="tool-btn primary">Load Font</button>
+                            <div class="steps">
+                                <p>1. Search for a font on <a href="https://fonts.google.com" target="_blank">Google Fonts</a></p>
+                                <p>2. Copy and paste the name here</p>
+                                <p>3. <b>Weights:</b> We automatically attempt to load weights 400, 500, 600, and 700 for you.</p>
+                            </div>
+                        </div>
+
+                        <div id="diskImport" class="import-content hidden">
+                            <label for="fontFileUpload" class="upload-label small">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                                Select .ttf/.otf/.woff
+                            </label>
+                            <input type="file" id="fontFileUpload" accept=".ttf,.otf,.woff,.woff2" class="hidden">
+                            <div class="steps">
+                                <p>1. Upload your font file from your device.</p>
+                                <p>2. <b>Weights:</b> To use a specific weight (like Bold), upload that specific file (e.g., 'Roboto-Bold.ttf').</p>
+                                <p>3. It will appear in the Font list immediately.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label>Size</label>
+                        <input type="range" id="textSize" min="50" max="450" value="280">
+                    </div>
+
+                    <div class="control-group">
+                        <label>Rotation</label>
+                        <input type="range" id="textRotation" min="-180" max="180" value="0">
+                    </div>
+
+                    <div class="color-row">
+                        <div class="color-picker-mini">
+                            <label>Fill</label>
+                            <input type="color" id="textColor" value="#ffffff">
+                        </div>
+                        <div class="color-picker-mini">
+                            <label>Outline</label>
+                            <input type="color" id="textOutlineColor" value="#000000">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label>Outline Width</label>
+                        <input type="range" id="textOutlineWidth" min="0" max="20" value="0">
+                    </div>
+
+                </section>
+
+                <section id="settings-tools" class="tool-section">
+                    <h3>Config & Toggles</h3>
+                    <div class="control-group">
+                        <label>Format Options</label>
+                        <div class="toggle-row">
+                            <button id="caseToggle" class="tool-btn" title="Toggle Title Case vs Lowercase">Aa</button>
+                            <button id="limitToggle" class="tool-btn active" title="Character Limit (2 Max)">Limit (2)</button>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label>Character Compatibility</label>
+                        <div class="toggle-row">
+                            <button id="symbolsToggle" class="tool-btn" title="Allow Symbols/Punctuation">Symbols</button>
+                            <button id="unicodeToggle" class="tool-btn active" title="Fix Unsupported Unicode Characters">Unicode Fix</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Background Tools -->
+                <section id="bg-tools" class="tool-section">
+                    <h3>Background</h3>
+                    <div class="pattern-selector">
+                        <div class="pattern-row">
+                            <button id="patternToggle" class="pattern-main-btn">
+                                <svg id="patternIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                                </svg>
+                                <span>Pattern</span>
+                            </button>
+                            <button id="gradientToggle" class="tool-btn" title="Toggle Smooth Gradients">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 12l10 10 10-10L12 2z"></path>
+                                    <path d="M12 2v20"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="angleControl" class="control-group hidden">
+                        <label>Angle</label>
+                        <input type="range" id="diagonalAngle" min="0" max="360" value="45">
+                    </div>
+
+                    <div id="slotSelector" class="slot-container hidden">
+                        <!-- Slots injected by JS -->
+                    </div>
+
+                    <div class="palette-grid" id="colorPalette">
+                        <!-- Colors injected by JS -->
+                        <div class="custom-color-container">
+                            <input type="color" id="customColorInput" class="hidden-picker">
+                            <button id="customColorBtn" class="palette-color custom-btn"><span>+</span></button>
+                        </div>
+                    </div>
+
+                    <div class="image-upload-area">
+                        <label for="bgImageUpload" class="upload-label">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                            Upload Background
+                        </label>
+                        <input type="file" id="bgImageUpload" accept="image/*" class="hidden">
+                        <button id="clearBgImage" class="hidden">Clear Image</button>
+                    </div>
+                </section>
+            </div>
+
+            <div class="sidebar-footer">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                    <button id="downloadBtn" class="download-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Download
+                    </button>
+                    <button id="commentImageBtn" class="download-btn" style="background:var(--bg-sidebar);color:var(--text-main);border:1px solid var(--border);min-width:140px;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><rect x="3" y="3" width="18" height="12" rx="2"></rect><path d="M8 11l2-2 3 3 4-4 2 2"></path></svg>
+                        Post to Comments
+                    </button>
+                </div>
+                <p class="disclaimer">Not affiliated with Google.</p>
+            </div>
+        </aside>
+
+        <!-- Preview Area -->
+        <main class="preview-area">
+            <p id="defaultHint" class="hint">Tinker with the tools to start!</p>
+            <div class="canvas-container">
+                <canvas id="pfpCanvas" width="512" height="512"></canvas>
+            </div>
+        </main>
+    </div>
+    <div id="changelogModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Changelog</h3>
+                <button id="closeModal" class="icon-btn" title="Close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="changelog-list">
+                    <li>
+                        <strong>Revision 34:</strong> Introduced custom font importing. You can now load fonts directly from Google Fonts by name or upload .ttf/.otf files from your device.
+                    </li>
+                    <li>
+                        <strong>Revision 35:</strong> Added support for font weights in custom fonts. Google Fonts automatically load 400-700 weights, while disk fonts support specific weight files.
+                    </li>
+                    <li>
+                        <strong>Revision 36:</strong> Implemented persistent storage. All imported custom fonts are now saved to your browser's local storage and will be available every time you return.
+                    </li>
+                    <li>
+                        <strong>Revision 41:</strong> Enhanced the text rendering engine to ensure perfect vertical centering for all font types and character sets.
+                    </li>
+                    <li>
+                        <strong>Revision 43:</strong> Added a dedicated symbols toggle for special character support and moved all configuration toggles into a new "Config" tab for a more organized mobile interface.
+                    </li>
+                    <li>
+                        <strong>Revision 45:</strong> Integrated the Websim Comments API, allowing you to instantly share your creations by posting them directly to the project's comment section with a single click.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
